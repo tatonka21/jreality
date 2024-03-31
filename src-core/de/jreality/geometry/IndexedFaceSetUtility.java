@@ -1589,7 +1589,9 @@ public class IndexedFaceSetUtility {
 		double[][] normals = null,
     		nvectors = new double[2*n][fiberlength];
     	if (ifs.getFaceAttributes(Attribute.NORMALS) != null)
-    		normals = ifs.getFaceAttributes(Attribute.NORMALS).toDoubleArrayArray(null);
+    		{
+    		    normals = ifs.getFaceAttributes(Attribute.NORMALS).toDoubleArrayArray(null);
+    		}
      	else normals = IndexedFaceSetUtility.calculateFaceNormals(ifs, metric);
 //    	System.err.println("Vertex fiber is "+fiberlength);
 //    	System.err.println("Normal fiber is "+normals[0].length);

@@ -321,7 +321,8 @@ public class PolygonPipeline
 
         int vc = vertexCount;
         if(vd.getLengthAt(0)==3)        
-        for (int i = 0; i < vertices.getLength(); i++) {
+        {
+            for (int i = 0; i < vertices.getLength(); i++) {
             int vi = vertices.getValueAt(i);
             DoubleArray vertex=vd.item(vi).toDoubleArray();
             VecMat.transform(
@@ -357,8 +358,10 @@ public class PolygonPipeline
                 
             }
             vc += Polygon.VERTEX_LENGTH;
+        }
         } else // vertices are 4 tupel
-        for (int i = 0; i < vertices.getLength(); i++) {
+        {
+            for (int i = 0; i < vertices.getLength(); i++) {
             int vi = vertices.getValueAt(i);
             DoubleArray vertex=vd.item(vi).toDoubleArray();
             VecMat.transform(
@@ -402,6 +405,7 @@ public class PolygonPipeline
                 
             }
             vc += Polygon.VERTEX_LENGTH;
+        }
         }
         compute(vertices.getLength());
     }
@@ -476,7 +480,9 @@ public class PolygonPipeline
                     pi.setShader(ps);
                     if (queueOpaque || isTransparent) {
                         if(sortOpaque || isTransparent)
-                            pi.computeCenterZ(vertexData);
+                            {
+                                pi.computeCenterZ(vertexData);
+                            }
                             //pi.computeMaxZ(vertexData);
                         //return;
                     } else {

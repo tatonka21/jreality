@@ -113,11 +113,13 @@ public class ShaderUtility {
       if (name.equals("twoSide")) return TwoSidePolygonShader.class;
       if (name.equals("default")) return DefaultPolygonShader.class;
       if (name.equals("hatch"))
-		try {
+		{
+		    try {
 			return Class.forName("de.jreality.shader.HatchPolygonShader");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
 		}
      if (name.equals("etch"))
         try {

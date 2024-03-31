@@ -135,7 +135,9 @@ public class LightCollector extends SceneGraphVisitor {
 //        map.put("to",zdirection);
         map.put("to",new float[] {(float)dto[0], (float) dto[1], (float) dto[2]});
         if (metric == Pn.EUCLIDEAN)
-        	lightname = shadowEnabled ? "shadowdistant": "distantlight";
+        	{
+        	    lightname = shadowEnabled ? "shadowdistant": "distantlight";
+        	}
          ri.lightSource(lightname,map);
          ri.transformEnd();
      }

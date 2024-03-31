@@ -107,7 +107,9 @@ public class IndexedLineSet extends PointSet
   public void setNumEdges(int numEdges)
   {
 	  if( numEdges == getNumEdges() )
-		  return;
+		  {
+		      return;
+		  }
     setNumEntries( edgeAttributes, numEdges );
   }
 

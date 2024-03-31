@@ -198,7 +198,9 @@ public class InvertVertexShader extends VertexShader {
 						+ (light.getA1() + light.getA2() * dst) * dst);
 			double softFrac = light.getSoftEdgeFraction();
 			if (cosAngle - cosCone < softFrac)
-				intensity *= (cosAngle - cosCone) / softFrac;
+				{
+				    intensity *= (cosAngle - cosCone) / softFrac;
+				}
 			//diffuse:
             double ntl = (nx * lx + ny * ly + nz * lz) ;
             //double fac = -normalflip * (nx * lx + ny * ly + nz * lz) * 2;

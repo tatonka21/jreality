@@ -53,7 +53,9 @@ public class JOGLSphereInstance extends JOGLGeometryInstance {
 		JOGLSphereEntity se = (JOGLSphereEntity) getEntity();
 		boolean visible = (boolean)eap.getAttribute(ShaderUtility.nameSpace(CommonAttributes.POLYGON_SHADER, CommonAttributes.FACE_DRAW), CommonAttributes.FACE_DRAW_DEFAULT);
 		if(visible)
-			SphereShader.addOneLayer(se, sphereUniforms, polygonTexture, polygonReflMap, sphereShaderTransp, state, width, height, alpha);
+			{
+			    SphereShader.addOneLayer(se, sphereUniforms, polygonTexture, polygonReflMap, sphereShaderTransp, state, width, height, alpha);
+			}
 			//SphereShader.render(se, sphereUniforms, polygonTexture, polygonReflMap, sphereShader, state);
 	}
 

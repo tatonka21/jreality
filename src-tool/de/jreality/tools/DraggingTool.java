@@ -122,7 +122,9 @@ public class DraggingTool extends AbstractTool {
       Matrix evolution = new Matrix(tc.getTransformationMatrix(evolutionSlot));
       // need to convert from euclidean to possibly non-euclidean translation
 	  if (metric != Pn.EUCLIDEAN)
-		  MatrixBuilder.init(null, metric).translate(evolution.getColumn(3)).assignTo(evolution);
+		  {
+		      MatrixBuilder.init(null, metric).translate(evolution.getColumn(3)).assignTo(evolution);
+		  }
     
       (moveChildren ? tc.getRootToLocal():tc.getRootToToolComponent()).getMatrix(local2world.getArray());
       if (Rn.isNan(local2world.getArray())) return;

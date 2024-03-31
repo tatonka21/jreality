@@ -40,7 +40,9 @@ public class PointSetUtility {
     		nvectors = new double[2*n][fiberlength];
     	normals = ps.getVertexAttributes(Attribute.NORMALS).toDoubleArrayArray(null);
     	if (normals == null) 
-    		throw new IllegalStateException("must have vertex normals");
+    		{
+    		    throw new IllegalStateException("must have vertex normals");
+    		}
     	
       	for (int i = 0; i<n; ++i)	{
       		nvectors[i] = verts[i];

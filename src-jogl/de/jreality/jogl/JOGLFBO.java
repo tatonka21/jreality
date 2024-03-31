@@ -123,11 +123,15 @@ public class JOGLFBO {
 		gl.glBindFramebuffer(GL2.GL_FRAMEBUFFER, fbo[0]);
 		gl.glBindRenderbuffer(GL2.GL_RENDERBUFFER, rbuffer[0]);
 		if (!asTexture)
-			gl.glRenderbufferStorageMultisample(GL2.GL_RENDERBUFFER, samples,
+			{
+			    gl.glRenderbufferStorageMultisample(GL2.GL_RENDERBUFFER, samples,
 					GL.GL_DEPTH_COMPONENT32, width, height);
+			}
 		else
-			gl.glRenderbufferStorage(GL2.GL_RENDERBUFFER,
+			{
+			    gl.glRenderbufferStorage(GL2.GL_RENDERBUFFER,
 					GL2.GL_DEPTH_COMPONENT, width, height);
+			}
 			gl.glFramebufferRenderbuffer(GL2.GL_FRAMEBUFFER,
 				GL2.GL_DEPTH_ATTACHMENT, GL2.GL_RENDERBUFFER, rbuffer[0]);
 

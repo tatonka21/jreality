@@ -220,7 +220,9 @@ public class GlslSource implements Serializable {
 	  if (type.startsWith("i") || type.startsWith("sampler") || type.startsWith("bool"))
 	        primitiveType =  int.class;
 		  else 
-			  primitiveType = float.class;
+			  {
+			      primitiveType = float.class;
+			  }
       int prDataSize = isMatrix ? primitiveSize*primitiveSize : primitiveSize;
       dataSize = isArray ? arrayLen * prDataSize : prDataSize;
       StringBuffer sb = new StringBuffer("glUniform");

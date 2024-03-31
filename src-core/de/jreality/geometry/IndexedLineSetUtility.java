@@ -200,7 +200,9 @@ public class IndexedLineSetUtility {
 		int[][] indices = ils.getEdgeAttributes(Attribute.INDICES).toIntArrayArray(null);
 		int numEdges = ils.getNumEdges();
 		if (angles == null ||  angles.length != indices.length)
-		angles = new double[numEdges][];
+		{
+		    angles = new double[numEdges][];
+		}
 		for (int j = 0; j<numEdges; ++j)	{
 			int length = indices[j].length-1;
 			double total = 0;

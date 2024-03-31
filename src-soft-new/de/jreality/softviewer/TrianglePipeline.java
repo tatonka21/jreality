@@ -214,9 +214,13 @@ public class TrianglePipeline {
 
     final void startGeometry(Geometry geom) {
          if (lineShader != null)
-         lineShader.startGeometry(geom);
+         {
+             lineShader.startGeometry(geom);
+         }
          if (faceShader != null)
-         faceShader.startGeometry(geom);
+         {
+             faceShader.startGeometry(geom);
+         }
          if (pointShader != null)
          pointShader.startGeometry(geom);
     }

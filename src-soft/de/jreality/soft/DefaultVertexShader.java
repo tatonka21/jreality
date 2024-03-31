@@ -195,7 +195,9 @@ public class DefaultVertexShader implements VertexShader {
 						+ (light.a1 + light.a2 * dst) * dst);
 			double softFrac = light.softEdgeFraction;
 			if (cosAngle - cosCone < softFrac)
-				intensity *= (cosAngle - cosCone) / softFrac;
+				{
+				    intensity *= (cosAngle - cosCone) / softFrac;
+				}
 			//diffuse:
             double ntl = (nx * lx + ny * ly + nz * lz) ;
             //double fac = -normalflip * (nx * lx + ny * ly + nz * lz) * 2;

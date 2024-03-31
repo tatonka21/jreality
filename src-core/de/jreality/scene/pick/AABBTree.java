@@ -309,7 +309,9 @@ public class AABBTree {
           this.verts = verts;
           // handle 4-vectors
           if (verts[0].length == 4)	
-        	  this.verts = Pn.dehomogenize(new double[verts.length][3], verts);
+        	  {
+        	      this.verts = Pn.dehomogenize(new double[verts.length][3], verts);
+        	  }
            this.index=index;
            int count = verts.length;
 					centroid = Rn.copy(null, verts[0]);

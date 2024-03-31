@@ -521,7 +521,9 @@ import de.jreality.scene.data.IntArrayArray;
 				thisF[1] = offset+diff+1+i1;
 				thisF[2] = offset+1+i1;
 				thisF[3] = offset+i1;
-				if (keepFaceColors && newFaceColors != null) newFaceColors[allFaceCount] = new double[]{1,1,1,1};;
+				if (keepFaceColors && newFaceColors != null) {
+				    newFaceColors[allFaceCount] = new double[]{1,1,1,1};
+				};
 				allFaceCount++;
 			}
 		}
