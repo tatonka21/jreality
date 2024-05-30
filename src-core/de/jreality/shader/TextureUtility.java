@@ -44,6 +44,7 @@ import static de.jreality.shader.CommonAttributes.TEXTURE_2D;
 import static de.jreality.shader.CommonAttributes.TEXTURE_2D_1;
 import static de.jreality.shader.CommonAttributes.TEXTURE_2D_2;
 import static de.jreality.shader.CommonAttributes.TEXTURE_2D_3;
+import io.github.pixee.security.ZipSecurity;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -340,7 +341,7 @@ public class TextureUtility {
 	}
 
 	public static ImageData[] createCubeMapData(Input zipFile) throws IOException {
-		ZipInputStream zis = new ZipInputStream(zipFile.getInputStream());
+		ZipInputStream zis = ZipSecurity.createHardenedInputStream(zipFile.getInputStream());
 		ImageData[] id = new ImageData[6];
 		for (ZipEntry ze = zis.getNextEntry(); ze != null; ze = zis.getNextEntry()) {
 			if (ze.isDirectory()) continue;
