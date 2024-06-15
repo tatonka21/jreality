@@ -1,5 +1,6 @@
 package de.jreality.renderman;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -179,7 +180,7 @@ class RenderScript {
 					BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 					String line = null;
 					try {
-						while ((line = br.readLine()) != null) System.out.println(line);
+						while ((line = BoundedLineReader.readLine(br, 5_000_000)) != null) System.out.println(line);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

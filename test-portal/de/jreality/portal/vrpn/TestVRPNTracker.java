@@ -1,5 +1,6 @@
 package de.jreality.portal.vrpn;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -92,7 +93,7 @@ public class TestVRPNTracker
 				System.out.flush();
 				System.err.flush();
 				System.out.println("hit enter to end");
-				in.readLine();
+				BoundedLineReader.readLine(in, 5_000_000);
 			} catch (IOException ioe) {
 			}
 			return;
