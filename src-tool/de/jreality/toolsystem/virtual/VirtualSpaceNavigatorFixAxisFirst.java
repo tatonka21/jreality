@@ -113,7 +113,9 @@ public class VirtualSpaceNavigatorFixAxisFirst implements VirtualDevice {
 			if(Math.abs(newOne-last)>failureToleranceRatio*last)remove=true;
 			// Abweichung nach oben immer ok
 			if((newOne-last)*Math.signum(last)>0)remove=false;
-			if(remove)list.remove(list.size()-1);
+			if(remove){
+			    list.remove(list.size()-1);
+			}
 		} 
 		// average:
 		double average=calcAverage();
