@@ -1,5 +1,6 @@
 package de.jreality.plugin.experimental;
 
+import static io.github.pixee.security.XMLDecoderSecurity.hardenStream;
 import java.awt.event.ActionEvent;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
@@ -113,7 +114,7 @@ public class LoadSaveSettings extends Plugin {
 	@SuppressWarnings("unchecked")
 	protected void restoreCurrentStates(InputStream is) throws IOException {
 		
-		final XMLDecoder dec = new XMLDecoder(is);
+		final XMLDecoder dec = new XMLDecoder(hardenStream(is));
 		
 		final HashMap<Class<?>, HashMap<String, Object>> properyMap = new HashMap<Class<?>, HashMap<String,Object>>();
 		while (true) {
