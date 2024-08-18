@@ -40,6 +40,8 @@
 
 package de.jreality.ui.viewerapp;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -616,7 +618,7 @@ public class ViewerApp {
 				// HACK: only works for "regular" URLs
 				try {
 					if (config.contains("://")) {
-						cfg = ToolSystemConfiguration.loadConfiguration(new Input(new URL(config)));
+						cfg = ToolSystemConfiguration.loadConfiguration(new Input(Urls.create(config, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS)));
 					} else {
 						if (config.equals("default")) cfg = ToolSystemConfiguration.loadDefaultDesktopConfiguration();
 						if (config.equals("portal")) cfg = ToolSystemConfiguration.loadDefaultPortalConfiguration();

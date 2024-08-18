@@ -40,6 +40,8 @@
 
 package de.jreality.util;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -131,7 +133,7 @@ public final class Input
     }
     else if(sourceURL!=null)
     {
-      return new Input(new URL(sourceURL, name));
+      return new Input(Urls.create(sourceURL, name, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS));
     }
     else throw new IOException("cannot resolve \""
       +name+"\" relative to \""+description+'"');
@@ -256,7 +258,7 @@ public final class Input
   public static Input getInput(String resourceName) throws IOException {
     if (resourceName.indexOf("://") != -1) {
       try {
-        return getInput(new URL(resourceName));
+        return getInput(Urls.create(resourceName, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS));
       } catch (IOException e) {
         // not found maybe it is a file...
       }

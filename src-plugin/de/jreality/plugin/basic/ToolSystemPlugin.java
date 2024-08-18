@@ -40,6 +40,8 @@ package de.jreality.plugin.basic;
  *
  */
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.net.URL;
@@ -111,7 +113,7 @@ public class ToolSystemPlugin extends Plugin implements ChangeListener {
 						// HACK: only works for "regular" URLs
 						try {
 							if (toolConfig.contains("://")) {
-								cfg = ToolSystemConfiguration.loadConfiguration(new Input(new URL(toolConfig)));
+								cfg = ToolSystemConfiguration.loadConfiguration(new Input(Urls.create(toolConfig, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS)));
 							} else {
 								if (toolConfig.equals("default")) cfg = ToolSystemConfiguration.loadDefaultDesktopConfiguration();
 								if (toolConfig.equals("portal")) cfg = ToolSystemConfiguration.loadDefaultPortalConfiguration();

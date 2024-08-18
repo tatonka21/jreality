@@ -40,6 +40,8 @@
 
 package de.jreality.reader;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
@@ -120,7 +122,7 @@ public class ReaderJVX extends AbstractReader {
 //	    		// not found
 //	    	}
 	    	if (dtd == null) try {
-	    		dtd = Input.getInput(new URL(systemId));
+	    		dtd = Input.getInput(Urls.create(systemId, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS));
 	    	} catch (Exception e) {
 	    		// not found
 	    	}
