@@ -668,7 +668,9 @@ private Imager imager = null;
             b = color[2];
         }
         if(omt <=0)
-            return;
+            {
+                return;
+            }
        //if ( omt < 1.D) {
             if ( transparencyEnabled && omt < 1.D) {
 
