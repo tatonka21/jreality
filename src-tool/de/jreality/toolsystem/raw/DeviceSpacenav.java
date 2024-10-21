@@ -1,5 +1,6 @@
 package de.jreality.toolsystem.raw;
 
+import io.github.pixee.security.SystemCommand;
 import java.io.IOException;
 import java.util.Map;
 
@@ -72,7 +73,7 @@ public class DeviceSpacenav implements RawDevice, Runnable {
 							long ct = System.currentTimeMillis();
 							int diff = (int) (ct - timestamp);
 							try {
-								if (diff < 2500) Runtime.getRuntime().exec(SCREENSAVER_WAKEUP_CMD);
+								if (diff < 2500) SystemCommand.runCommand(Runtime.getRuntime(), SCREENSAVER_WAKEUP_CMD);
 							} catch (IOException e) {
 								System.out.println("Could not trigger screensaver - giving up.");
 								return;
