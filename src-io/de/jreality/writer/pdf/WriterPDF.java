@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.OutputStream;
 import java.io.Writer;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -223,7 +224,7 @@ public class WriterPDF implements SceneWriter {
 	 */
 	public void writeScene(JrScene scene, OutputStream out) throws IOException {
 		// Write U3D data to temporary file
-		File u3dTmp = File.createTempFile("jralityPDFExport", "u3d");
+		File u3dTmp = Files.createTempFile("jralityPDFExport", "u3d").toFile();
 		FileOutputStream u3dout = new FileOutputStream(u3dTmp); 
 		WriterU3D.write(scene, u3dout);
 

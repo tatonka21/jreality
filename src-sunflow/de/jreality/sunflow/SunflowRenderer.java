@@ -42,6 +42,7 @@ package de.jreality.sunflow;
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 
@@ -689,7 +690,7 @@ public class SunflowRenderer extends SunflowAPI {
 
 		// add texture path
 		try {
-			File tmpF = File.createTempFile("foo", ".png");
+			File tmpF = Files.createTempFile("foo", ".png").toFile();
 			addTextureSearchPath(tmpF.getParentFile().getAbsolutePath());
 			if (!tmpF.delete()) tmpF.deleteOnExit();
 		} catch (IOException e) {
