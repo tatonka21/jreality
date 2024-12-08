@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.security.SecureRandom;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -23,7 +24,7 @@ public class PythonScriptTool extends AbstractAction {
 	
 	private static final long serialVersionUID = 1L;
 	private static Random
-		random = new Random();
+		random = new SecureRandom();
 	private String
 		name = "New Python Tool",
 		menuPath = "Python Tools",

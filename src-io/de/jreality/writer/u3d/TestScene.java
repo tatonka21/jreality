@@ -14,6 +14,7 @@ import static de.jreality.shader.CommonAttributes.VERTEX_DRAW;
 
 import java.awt.Color;
 import java.io.FileOutputStream;
+import java.security.SecureRandom;
 import java.util.Random;
 
 import de.jreality.geometry.Primitives;
@@ -34,7 +35,7 @@ import de.jreality.writer.pdf.WriterPDF.PDF3DTool;
 public class TestScene {
 
 	private static Random 
-		rnd = new Random();
+		rnd = new SecureRandom();
 	
 	/**
 	 * @param args

@@ -1,5 +1,6 @@
 package de.jreality.plugin.scripting;
 
+import java.security.SecureRandom;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 
 import java.awt.Dimension;
@@ -39,7 +40,7 @@ public class PythonGUIManager extends JPanel implements ActionListener, ListSele
 	private static final long 
 		serialVersionUID = 1L;
 	private static final Random
-		random = new Random();
+		random = new SecureRandom();
 	private static final Icon
 		addIcon = ImageHook.getIcon("add.png"),
 		removeIcon = ImageHook.getIcon("delete.png");

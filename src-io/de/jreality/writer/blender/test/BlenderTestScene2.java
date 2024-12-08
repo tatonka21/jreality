@@ -21,6 +21,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -110,7 +111,7 @@ public class BlenderTestScene2 {
 		SceneGraphComponent skinTubeComponent = new SceneGraphComponent("Skin Tubes Test");
 		IndexedFaceSet polygon = Primitives.regularPolygon(100);
 		IndexedFaceSetUtility.calculateAndSetEdgesFromFaces(polygon);
-		Random rnd = new Random();
+		Random rnd = new SecureRandom();
 		double[] radii = new double[100];
 		for (int i = 0; i < radii.length; i++) {
 			radii[i] = rnd.nextDouble();
