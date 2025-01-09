@@ -1,4 +1,5 @@
 package de.jreality.jogl3.glsl;
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -113,7 +114,7 @@ public class GLShader
 			InputStream is = getClass().getResourceAsStream(name);
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 			String line;
-			while ((line = br.readLine()) != null)
+			while ((line = BoundedLineReader.readLine(br, 5_000_000)) != null)
 			{
 				sb.append(line);
 				sb.append('\n');
