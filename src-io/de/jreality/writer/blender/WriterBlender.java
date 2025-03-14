@@ -13,6 +13,7 @@ import de.jreality.scene.SceneGraphComponent;
 import de.jreality.scene.SceneGraphNode;
 import de.jreality.util.SceneGraphUtility;
 import de.jreality.writer.SceneWriter;
+import java.nio.file.Files;
 
 /**
  * 
@@ -23,7 +24,7 @@ public class WriterBlender implements SceneWriter {
 
 	private File writeBlenderSceneTmp(JrScene scene) throws IOException {
 		BlenderConnection c = new BlenderConnection();
-		File f = File.createTempFile("blenderExport", ".blend");
+		File f = Files.createTempFile("blenderExport", ".blend").toFile();
 		f.deleteOnExit();
 		c.writeFile(scene, f);
 		return f;

@@ -11,6 +11,7 @@ import java.io.Writer;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -112,7 +113,7 @@ public class BlenderConnection {
 	}
 	
 	protected File writeScene(JrScene scene) throws IOException {
-		File sceneFile = File.createTempFile("jrealityBlenderExportScene", ".jrs");
+		File sceneFile = Files.createTempFile("jrealityBlenderExportScene", ".jrs").toFile();
 		sceneFile.deleteOnExit();
 		OutputStream sceneOut = new FileOutputStream(sceneFile); 
 		WriterJRS jrsWriter = new WriterJRS();
@@ -135,7 +136,7 @@ public class BlenderConnection {
 		if (rendererScript != null) {
 			return rendererScript;
 		}
-		rendererScript = File.createTempFile("jrealityBlenderRenderer", "py");
+		rendererScript = Files.createTempFile("jrealityBlenderRenderer", "py").toFile();
 		rendererScript.deleteOnExit();
 		ReadableByteChannel rbc = Channels.newChannel(getClass().getResourceAsStream("renderer.py"));
 		FileOutputStream fin = new FileOutputStream(rendererScript);
