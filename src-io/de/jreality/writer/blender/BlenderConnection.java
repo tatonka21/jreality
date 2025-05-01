@@ -1,5 +1,6 @@
 package de.jreality.writer.blender;
 
+import io.github.pixee.security.SystemCommand;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -82,7 +83,7 @@ public class BlenderConnection {
 		String[] argArray = argList.toArray(new String[argList.size()]);
 		try {
 			File dir = blenderApp.getParentFile();
-			Process p = Runtime.getRuntime().exec(argArray, new String[]{}, dir);
+			Process p = SystemCommand.runCommand(Runtime.getRuntime(), argArray, new String[]{}, dir);
 			InputStream in = new BufferedInputStream(p.getInputStream());
 			InputStream err = new BufferedInputStream(p.getErrorStream());
 			int bIn = 0;
