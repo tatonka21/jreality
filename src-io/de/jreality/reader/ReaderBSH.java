@@ -40,6 +40,8 @@
 
 package de.jreality.reader;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.beans.Statement;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -93,7 +95,7 @@ public class ReaderBSH implements SceneReader {
   
   static {
     try {
-      URL bshURL = new URL(Secure.getProperty(SystemProperties.BSH_JAR, "file:///net/MathVis/Oorange/oorange1.9/lib/bsh-1.3b2.jar"));
+      URL bshURL = Urls.create(Secure.getProperty(SystemProperties.BSH_JAR, "file:///net/MathVis/Oorange/oorange1.9/lib/bsh-1.3b2.jar"), Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
       bshLoader = new URLClassLoader(new URL[]{bshURL}, Thread.currentThread().getContextClassLoader());
       LinkedList<Permission> pc = new LinkedList<Permission>();
 //      pc.add(new java.lang.RuntimePermission("getClassLoader"));
